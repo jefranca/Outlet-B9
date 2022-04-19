@@ -24,12 +24,12 @@ model Address{
   city          String
   state         String
   streetNumber  Int
-  user User @relation(fields: [userId], references: [id])
+  user          User   @relation(fields: [userId], references: [id])
   orders        Order[]
 }
 
 model Order{
-  id          Int   @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   addressId   Int
   totalValue  Int
   adresses    Address  @relation(fields: [addressId], references: [id])
@@ -46,9 +46,9 @@ model Item{
 }
 
 model ItemsOnOrders{
-  id        Int  @id @default(autoincrement())
+  id        Int   @id @default(autoincrement())
   order     Order @relation(fields: [orderId],references:[id])
   orderId   Int
-  items     Item @relation(fields: [itemId],references:[id])
+  items     Item  @relation(fields: [itemId],references:[id])
   itemId    Int
 }
