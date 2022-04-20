@@ -18,4 +18,15 @@ async function getOneItem(id){
     return item;
 }
 
-export { getAllItems, getOneItem };
+async function postOneItem(product,size,img,amount){
+    const item = await prisma.create({
+        data:{
+            product: product,
+            size: size,
+            img: img,
+            amount: amount
+        }
+    })
+}
+
+export { getAllItems, getOneItem, postOneItem };

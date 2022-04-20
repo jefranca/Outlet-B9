@@ -22,4 +22,15 @@ async function getOneItem(req, res, next) {
   }
 }
 
-export { getAllItems, getOneItem };
+async function postOneItem(req, res, next) {
+  try {
+    await validations.itemValidation(req.body);
+    await itemsService.postOneItem(req.body);
+
+    res.sendStatus(201);
+  } catch (error) {
+    next(error)
+  }
+}
+
+export { getAllItems, getOneItem, postOneItem };
