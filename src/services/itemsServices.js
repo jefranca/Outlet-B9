@@ -48,4 +48,4 @@ async function sellOneItem(id){
     })
 }
 
-export { getAllItems, getOneItem, postOneItem, sellOneItem };
+export { getAllItems, getOneItem, postOneItem, sellOneItem, addMoreItem };
