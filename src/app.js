@@ -10,6 +10,9 @@ app.use(cors());
 
 app.get("/health", async (req, res) => res.sendStatus(200));
 app.get("/", itemsController.getAllItems);
+app.get("/item/:id", itemsController.getOneItem);
+app.post("/item", itemsController.postOneItem);
+app.put("/item/:id", itemsController.sellOneItem);
 
 app.use(errorHandler);
 
