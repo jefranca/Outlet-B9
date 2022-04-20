@@ -53,4 +53,18 @@ async function sellOneItem(req, res, next) {
   }
 }
 
-export { getAllItems, getOneItem, postOneItem, sellOneItem };
+async function addMore(req, res, next) {
+  try {
+    const id = req.body.id;
+    const amount = req.body.amount
+    await itemsService.addMore(id,amount);
+
+    return res.sendStatus(200);
+  } catch (error) {
+    if (error instanceof NonexistentItem)
+      return res.status(400).send("The item does not exist");
+    next(error);
+  }
+}
+
+export { getAllItems, getOneItem, postOneItem, sellOneItem, addMore };
