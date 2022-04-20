@@ -9,4 +9,14 @@ async function getAllItems(req, res, next) {
   }
 }
 
-export { getAllItems };
+async function getOneItem(req,res,next){
+    const id = Number(req.params.id);
+    try {
+        const item = await itemsService.getOneItem(id)
+        return await res.send(item);
+    } catch (error) {
+        next(error)
+    }
+}
+
+export { getAllItems, getOneItem };

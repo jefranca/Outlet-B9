@@ -7,4 +7,12 @@ async function getAllItems() {
   return allItems;
 }
 
-export { getAllItems };
+async function getOneItem(id){
+    return await prisma.item.findUnique({
+        where:{
+            id: id
+        }
+    })
+}
+
+export { getAllItems, getOneItem };
