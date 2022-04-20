@@ -18,8 +18,8 @@ async function getOneItem(id){
     return item;
 }
 
-async function postOneItem(product,size,img,amount){
-    const item = await prisma.create({
+async function postOneItem({product,size,img,amount}){
+    const item = await prisma.item.create({
         data:{
             product: product,
             size: size,

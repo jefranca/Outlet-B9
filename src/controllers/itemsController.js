@@ -1,4 +1,7 @@
 import NonexistentItem from "../errors/NonexistentItem.js";
+import ValidationError from "../errors/ValidationError.js";
+
+import * as validations from "../validations/validations.js"
 import * as itemsService from "../services/itemsServices.js";
 
 async function getAllItems(req, res, next) {
@@ -24,12 +27,14 @@ async function getOneItem(req, res, next) {
 
 async function postOneItem(req, res, next) {
   try {
-    await validations.itemValidation(req.body);
+    await validations.itemsValidations(req.body);
     await itemsService.postOneItem(req.body);
 
     res.sendStatus(201);
   } catch (error) {
-    next(error)
+    if (error instanceof ValidationError)
+      return res.status(400).send(error.message);
+    next(error);
   }
 }
 
