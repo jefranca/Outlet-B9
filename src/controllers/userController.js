@@ -37,4 +37,16 @@ async function signIn(req, res, next) {
     next(error);
   }
 }
-export { signUp, signIn };
+
+async function logout(req, res, next) {
+  const token = req.headers["authorization"]?.replace("Bearer ", "");
+
+  try {
+    await userServices.logout(token);
+    res.status(200).send("session closed");
+  } catch (error) {
+    next(error);
+  }
+}
+
+export { signUp, signIn, logout };
