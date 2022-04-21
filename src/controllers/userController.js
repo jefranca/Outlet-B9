@@ -6,7 +6,6 @@ import UserAlreadyExist from "../errors/UserAlreadyExist.js";
 
 async function signUp(req, res, next) {
   try {
-      console.log(req.body)
     await validations.userValidations(req.body)
     await userServices.signUp(req.body);
 
