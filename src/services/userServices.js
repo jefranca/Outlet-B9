@@ -50,4 +50,12 @@ async function signIn({ email, password }) {
   return userData;
 }
 
-export { signUp, signIn };
+async function logout(token){
+    await prisma.user.delete({
+        where:{
+            token: token
+        }
+    })
+}
+
+export { signUp, signIn, logout };
