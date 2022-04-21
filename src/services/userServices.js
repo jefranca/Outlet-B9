@@ -51,10 +51,10 @@ async function signIn({ email, password }) {
 }
 
 async function logout(token){
-    await prisma.user.delete({
-        where:{
-            token: token
-        }
+    await prisma.session.delete({
+        where: {
+          token,
+        },
     })
 }
 

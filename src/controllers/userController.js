@@ -38,7 +38,7 @@ async function signIn(req, res, next) {
   }
 }
 
-async function logout() {
+async function logout(req, res, next) {
   const token = req.headers["authorization"]?.replace("Bearer ", "");
 
   try {
