@@ -16,6 +16,7 @@ app.post("/item", itemsController.postOneItem);
 app.put("/item/sell/:id", itemsController.sellOneItem);
 app.put("/item/add", itemsController.addMore)
 app.post("/sign-up", userController.signUp)
+app.post("/sign-in", userController.signIn)
 
 app.use(errorHandler);
 

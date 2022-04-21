@@ -13,4 +13,9 @@ const userSchemma = joi.object({
   password: joi.string().required()
 })
 
-export { itemsSchemma, userSchemma };
+const userSignInSchemma = joi.object({
+  email: joi.string().required(),
+  password: joi.string().required()
+})
+
+export { itemsSchemma, userSchemma, userSignInSchemma };
