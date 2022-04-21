@@ -12,7 +12,6 @@ model User {
   name     String   
   email    String   @unique
   password String
-  img      String
   adresses Address[]
   session Session[]
 }

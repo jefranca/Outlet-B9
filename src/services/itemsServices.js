@@ -1,6 +1,7 @@
 import NonexistentItem from "../errors/NonexistentItem.js";
 import pkg from "@prisma/client";
 import SoldOut from "../errors/SoldOut.js";
+
 const { PrismaClient } = pkg;
 const prisma = new PrismaClient();
 
