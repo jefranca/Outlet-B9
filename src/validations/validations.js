@@ -7,4 +7,16 @@ async function itemsValidations(item) {
     throw new ValidationError(joiValidation.error.details[0].message);
 }
 
-export { itemsValidations };
+async function userValidations(user) {
+  const joiValidation = schemas.userSchemma.validate(user);
+  if (joiValidation.error)
+    throw new ValidationError(joiValidation.error.details[0].message);
+}
+
+async function userSignInValidations(user) {
+  const joiValidation = schemas.userSignInSchemma.validate(user);
+  if (joiValidation.error)
+    throw new ValidationError(joiValidation.error.details[0].message);
+}
+
+export { itemsValidations, userValidations, userSignInValidations };
